@@ -1,10 +1,10 @@
 // 构建后生成 sitemap.xml + robots.txt（GitHub Pages 项目站，base=/atguigu-note/）
 // 用法：pnpm docs:build（自动执行），或单独 node scripts/gen-sitemap.mjs
 import { readdirSync, writeFileSync } from 'node:fs'
-import { join, relative } from 'node:path'
+import { join, relative, sep } from 'node:path'
 
 const DIST = '.vitepress/dist'
-const SITE = 'https://xbsheng.github.io'
+const SITE = 'https://pofmd6666669-oss.github.io'
 const BASE = '/atguigu-note'
 
 function walk(dir) {
@@ -18,8 +18,8 @@ function walk(dir) {
 const urls = walk(DIST)
   .filter((p) => p.endsWith('.html') && !p.endsWith('404.html'))
   .map((p) => {
-    const rel = relative(DIST, p).replace(/\.html$/, '')
-    return `  <url><loc>${SITE}${BASE}${rel === 'index' ? '' : '/' + rel}</loc></url>`
+    const rel = relative(DIST, p).split(sep).join('/').replace(/\.html$/, '')
+    return `  <url><loc>${SITE}${BASE}${rel === 'index' ? '/' : '/' + rel}</loc></url>`
   })
   .sort()
 
