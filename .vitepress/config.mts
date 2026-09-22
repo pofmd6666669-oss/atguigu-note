@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import type { HeadConfig } from 'vitepress'
 import { langchainSidebar, langgraphSidebar, vibeSidebar, pythonSidebar } from './sidebars'
 
-const site = 'https://xbsheng.github.io'
+const site = 'https://pofmd6666669-oss.github.io'
 const homeUrl = site + '/atguigu-note/'
 
 function jsonLd(schema: object): HeadConfig {
@@ -37,20 +37,9 @@ export default defineConfig({
       inLanguage: 'zh-CN',
       description: '尚硅谷 Python / LangChain / LangGraph 课程配套课件与代码整理',
     }),
-    [
-      'script',
-      {},
-      `var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?7a1e6eb3ba3fbae26e9f64cd365ee357";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();`,
-    ],
   ],
 
-  // GitHub Pages 项目站：https://xbsheng.github.io/atguigu-note/
+  // GitHub Pages 个人笔记站：https://pofmd6666669-oss.github.io/atguigu-note/
   base: '/atguigu-note/',
 
   transformHead(ctx) {
@@ -141,7 +130,12 @@ export default defineConfig({
       '/vibe_coding/': vibeSidebar,
     },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/xbsheng/atguigu-note' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/pofmd6666669-oss/atguigu-note' }],
+
+    editLink: {
+      pattern: 'https://github.com/pofmd6666669-oss/atguigu-note/edit/main/:path',
+      text: '编辑本页',
+    },
 
     search: {
       provider: 'local',
